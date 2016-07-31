@@ -37,6 +37,9 @@ WARNING!!! WARNING!!!
 (function () {
   var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
 
+  // To load the speak strings on the HTML and make it visible:
+  window.speak_strings = [];
+
   // STEP 10:
   // Loop over the names array and say either 'Hello' or "Good Bye"
   // using the 'speak' method or either helloSpeaker's or byeSpeaker's
@@ -58,10 +61,14 @@ WARNING!!! WARNING!!!
     // 'j'. If the same, call byeSpeaker's 'speak' method with the current name
     // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
     // name in the loop.
+    var speak_string = "";
+
     if (firstLetter === "j") {
-      byeSpeaker.speak(name);
+      speak_string = byeSpeaker.speak(name);
     } else {
-      helloSpeaker.speak(name);
+      speak_string = helloSpeaker.speak(name);
     }
+
+    window.speak_strings.push(speak_string);
   }
 })();
